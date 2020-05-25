@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="javascript/slide.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!--Link with CSS-->
+  <link rel="stylesheet" type="text/css" href="../css/exchange.css">
+  <title>MIGBIRD</title>
+
+  <!--Converter Script-->
+  <script type="text/javascript" src="http://currencyconverter.55uk.net/currency_converter_json.js"></script>
+<script type="text/javascript">
+function getMyRates(jData) {
+if (jData == null) {
+  alert("There was a problem parsing search results.");
+  return;
+}
+var myval = jData.ResultSet;
+var mydiv = jData.xxMyDiv;
+document.getElementById(mydiv).innerHTML =  myval;
+}
+
+function myPrivateConverterMany() {
+var xxv = document.getElementById('xxvalue').value;
+var xxf = document.getElementById('xxfrom').value;
+var xxt = document.getElementById('xxto').value;
+if (xxv > 0) {
+  getExchangeRatesDiv('xxrates',xxv,xxf,xxt,'true');
+}
+}
+</script>
+</head>
+<!--BODY-->
+<body>
+  <!--HEADER-->
+  <div id="banner">
+    <!--LOGO-->
+    <a href="../index.html">
+     <img src="../images/sitelogo.jpg" alt="logo">
+    </a>
+    <!--MENU-->
+    <ul id="menu">
+      <li><a href="exchange.html">Exchange Tools</a></li>
+      <li><a href="../rentCar/index.php">Rent A Car Prices</a></li>
+      <li><a href="../attractions/index.php">Attractions</a></li>
+      <li><a href="../contact/index.php">Contact</a></li>
+    </ul>
+  </div>
+
+  <!--Main Part-->
+  <h1>Exchange</h1>
+
+  <!--Calculator-->
+
+      <div class="calculator1">
+      
+    <h3>CONVERT: </h3><input id="xxvalue" value="1.00" />
+  	<h3>FROM:</h3>
+  	<select id="xxfrom">
+  		<option value="GBP">GBP - British Pound</option>
+  		<option value="EUR">EUR - Euro</option>
+  		<option value="USD">USD - U.S. Dollar</option>
+  		<option value="CAD">CAD - Canadian Dollar</option>
+  		<option value="AUD">AUD - Australian Dollar</option>
+  		<option value="JPY">JPY - Japanese Yen</option>
+  	</select>
+  	<h3>TO:</h3>
+  	<select id="xxto">
+  		<option value="EUR">EUR - Euro</option>
+  		<option value="USD">USD - U.S. Dollar</option>
+  		<option value="GBP">GBP - British Pound</option>
+  		<option value="CAD">CAD - Canadian Dollar</option>
+  		<option value="AUD">AUD - Australian Dollar</option>
+  		<option value="JPY">JPY - Japanese Yen</option>
+  	</select>
+    <br>
+  	<input id="input1" type="button" value="GO" onclick="myPrivateConverterMany();" />
+  	<div id="xxrates"></div>
+
+      </div>
+
+  <!--FOOTER-->
+
+  <div class="footer"></div>
+</body>
+</body>
+
+</html>
